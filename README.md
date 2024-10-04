@@ -15,4 +15,4 @@ The contribution to the wiki is done via pull requests. The book is rendered as 
 
 ## License
 
-This work is Licensed under the Apache-2.0 license see [LICENSE](./LICENSE) for more information.
+This work is Licensed under the CC BY-ND 4.0 see [LICENSE](./LICENSE) for more information.

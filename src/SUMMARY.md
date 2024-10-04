@@ -10,5 +10,6 @@
 
 - [geoengine](./geoengine.md)
 - [accurids](./accurids.md)
-- [ruwad](./ruqad.md)
+- [ruqad](./ruqad.md)
+- [expandAI](./expandAI.md)
 
