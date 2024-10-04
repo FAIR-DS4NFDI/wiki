@@ -10,4 +10,5 @@
 
 - [geoengine](./geoengine.md)
 - [accurids](./accurids.md)
+- [expandAI](./expandAI.md)
 
