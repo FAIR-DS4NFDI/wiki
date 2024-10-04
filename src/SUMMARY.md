@@ -1,9 +1,6 @@
 # Summary
 
-[Introduction](./introduction.md)
-
-# Technical Overview
-
+- [Introduction](./introduction.md)
 - [Technologies](./technologies.md)
 
 # Demonstrators

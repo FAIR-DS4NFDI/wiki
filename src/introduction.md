@@ -7,7 +7,7 @@ FAIR Dataspaces is a BMBF-funded project that aims to bridge the gap between res
 FAIR-DS uses a few core building blocks to enable data exchange.
 
 1. Federated catalog to register all available connectors and assets this is done via the W3C recommended [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/) vocabulary.
-2. Negotiation of data exchange is done via the Dataspace Protocol, a formal description of the protocol can be found [here](https://docs.internationaldataspaces.org/ids-knowledgebase/dataspace-protocol).
+2. Negotiation of data exchange is done via the [Dataspace Protocol](https://docs.internationaldataspaces.org/ids-knowledgebase/dataspace-protocol) that allows for souvereign data exchange between independent dataspace participants.
 
 
 ### Demonstrators
