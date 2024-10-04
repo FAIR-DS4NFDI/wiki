@@ -23,7 +23,7 @@ Demonstrators have been developed to show the possible interactions between diff
 
 - [Geoengine](./geoengine.md):
 - [Quality assurance](./quality.md):
-- [Personal Health Train](./pht.md):
+- [Distributed Analytics Platform (Personal Health Train)](./padme.md):
 
 - [accurids](./accurids.md):
 - [expandAI](./expandAI.md):
