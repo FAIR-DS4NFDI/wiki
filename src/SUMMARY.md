@@ -1,6 +1,8 @@
 # Summary
 
-[Introduction](./introduction.md)
+- [Introduction](./introduction.md)
+- [Getting started](./introduction.md#getting-started)
+- [FAQ](./introduction.md#faq)
 
 # Technical Overview
 
