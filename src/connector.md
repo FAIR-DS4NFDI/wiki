@@ -14,8 +14,8 @@ Once consumers have discovered the published asset, they can negotiate to fetch 
 6. Get contract agreement ID [CONSUMER]
 7. Start the data transfer [CONSUMER]
 8. Get the data [CONSUMER]
-8.1. Get the data address [CONSUMER]
-8.2. Get the actual data content [CONSUMER]
+   1. Get the data address [CONSUMER]
+   2. Get the actual data content [CONSUMER]
 
 The workflow above is called `Consumer-PULL` in the language of the Eclipse Data Components. It is the consumer who initializes the data transfer, and finally fetches (*pulls*) the data content as the last step.
 
