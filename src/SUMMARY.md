@@ -7,6 +7,6 @@
 
 - [geoengine](./geoengine.md)
 - [accurids](./accurids.md)
-- [ruqad](./ruqad.md)
 - [expandAI](./expandAI.md)
+- [ruqad](./ruqad.md)
 
