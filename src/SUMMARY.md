@@ -2,6 +2,7 @@
 
 - [Introduction](./introduction.md)
 - [Technologies](./technologies.md)
+    - [Connector](./connector.md)
 
 # Demonstrators
 
