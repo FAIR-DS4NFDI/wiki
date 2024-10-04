@@ -1,4 +1,4 @@
-# Reuse Quality-assured Data for Batteries
+# ![RuQaD Logo](./assets/ruqad_logo.webp) RuQaD Batteries
 
 The demonstrator RuQaD Batteries (Reuse Quality-assured Data for Batteries)
 demonstrates the bridging from a academic reasearch infrastructure to an
