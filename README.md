@@ -21,6 +21,10 @@ The contribution to the wiki is done via pull requests. The book is rendered as 
 
 [SUMMARY.md](./src/SUMMARY.md) contains the table of content for the book.
 
+## Copyright
+
+Copyright (C) 2024 The FAIR Dataspaces Project Wiki [Authors](./AUTHORS).
+
 ## License
 
 This work is licensed under a
