@@ -6,6 +6,12 @@ A rendered version of the wiki can be found here:
 
 https://fair-ds4nfdi.github.io/wiki/
 
+## Deploy Locally with Docker for Testing
+
+* In the repository's root directory, run `docker run -v $PWD:/book -p 3000:3000 peaceiris/mdbook serve --hostname 0.0.0.0`
+* Browse to http://localhost:3000
+* You can edit the content while the container is running and see the results immediately.
+
 
 ## Contributing
 
