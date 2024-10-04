@@ -156,18 +156,18 @@ The architecture of each namespace is structured around several core Kubernetes 
 For storage needs, certain pods have associations with Persistent Volume Claims (pvc), signifying that they rely on persistent storage. In terms of network communication, some pods are exposed via services (svc), which act as a gateway for external or internal access. Furthermore, a few of these services are linked to ingress (ing), implying they are accessible from outside the cluster or have specific routing rules applied.
 
 #### CentralService Namespace
-![centralservice.png](/assets/padme/k8s_centralservice.png)
+![centralservice.png](./assets/padme/k8s_centralservice.png)
 
 #### Harbor Namespace
 For Harbor deployment, we have utilized Helm charts. Helm charts are packages for Kubernetes applications, streamlining deployment and management. They offer consistency across deployments and support versioning, allowing for simplified and reproducible setups. The sources for these Helm charts are from the official Harbor repositories and documentation:
 - [GitHub - goharbor/harbor-helm: The helm chart to deploy Harbor](https://github.com/goharbor/harbor-helm)
 - [Deploying Harbor with High Availability via Helm](https://goharbor.io/docs/2.8.0/install-config/harbor-ha-helm/)
 
-![harbor.png](/assets/padme/k8s_harbor.png)
+![harbor.png](./assets/padme/k8s_harbor.png)
 
 #### StationRegistry Namespace
-![stationregistry.png](/assets/padme/k8s_stationregistry.png)
+![stationregistry.png](./assets/padme/k8s_stationregistry.png)
 
 #### StationSoftware Namespace
-![stationsoftware.png](/assets/padme/k8s_stationsoftware.png)
+![stationsoftware.png](./assets/padme/k8s_stationsoftware.png)
 
