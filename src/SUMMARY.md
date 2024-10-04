@@ -10,4 +10,5 @@
 
 - [geoengine](./geoengine.md)
 - [accurids](./accurids.md)
+- [ruwad](./ruqad.md)
 
