@@ -5,8 +5,7 @@
 
 # Demonstrators
 
-- [geoengine](./geoengine.md)
 - [accurids](./accurids.md)
 - [expandAI](./expandAI.md)
+- [Geo Engine](./geoengine.md)
 - [ruqad](./ruqad.md)
-
