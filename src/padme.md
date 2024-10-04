@@ -2,13 +2,13 @@
 
 ## Overview of the PADME Ecosystem
 
-On this section, we provide a top-level view about PADME and its context.  
+This section provides a top-level view of PADME and its context.  
 Further information can be found [here](https://docs.padme-analytics.de).
 
 ### Introduction
-In health care environments, such as hospitals or medical centres, a large amount of data is collected describing symptoms, diagnoses, and various aspects of the patient’s cure process. The recorded data is usually reused for reviewing and comparing the patient’s state when the patient visits the medical center again. Sometimes, selected data is shared for continued patient care when the patient moves to another hospital.
+In healthcare environments, such as hospitals or medical centers, a large amount of data is collected describing symptoms, diagnoses, and various aspects of the patient’s treatment process. This data is typically reused for reviewing and comparing the patient’s condition during subsequent visits. Sometimes, selected data is shared for continued patient care when the patient moves to another hospital.
 
-However, healthcare data is also a fundamental source for medical research. The results of studies often depend on the amount of available patient data. Typically, the more data available for analysis, the more reliable the results are. Yet, the reuse of patient data across different institutions is limited due to ethical, legal, and privacy regulations. Such restrictions are governed by laws like the [General Data Protection Regulation (GDPR)](https://gdpr-info.eu/) in Europe, the [Health Insurance Portability and Accountability Act (HIPAA)](https://www.hhs.gov/hipaa) in the U.S., or the [Data Protection Act (DPA)](https://www.gov.uk/data-protection) in the U.K.
+Healthcare data is also a fundamental source for medical research. The results of studies often depend on the amount of available patient data. Typically, the more data available for analysis, the more reliable the results. However, the reuse of patient data across different institutions is limited due to ethical, legal, and privacy regulations. Such restrictions are governed by laws like the [General Data Protection Regulation (GDPR)](https://gdpr-info.eu/) in Europe, the [Health Insurance Portability and Accountability Act (HIPAA)](https://www.hhs.gov/hipaa) in the U.S., or the [Data Protection Act (DPA)](https://www.gov.uk/data-protection) in the U.K.
 
 These limitations have prompted the development of distributed analytics (DA) solutions that bring algorithms to the data, ensuring sensitive data never leaves its source and that data owners maintain control. This paradigm shift helps comply with privacy laws and regulations.
 
@@ -26,7 +26,6 @@ There are several methodologies based on these abstract principles:
 
 - **Federated Learning (FL)**: FL is an approach where a central server aggregates results from multiple distributed data providers. Instead of collecting data in a central location, FL allows models to be trained across decentralized datasets. This is particularly useful in scenarios where data privacy and security are critical.
 - **Incremental Learning**: This approach is used when data needs to be processed in a specific sequence or when the output of one data provider becomes the input for the next. In machine learning, this involves updating a model incrementally as unseen data becomes available as analysis moves from one data provider to another. This means that a model is trained or updated at each data provider along the route.
-
 
 These concepts offer varying degrees of flexibility and complexity, and our PHT-based DA infrastructure focuses on ease of integration, compliance with privacy regulations, and extendibility.
 
@@ -73,35 +72,35 @@ EDC is an open-source framework designed to simplify data integration, managemen
 EDC facilitates two distinct modes for data transfer, each catering to different use cases and operational requirements:
 
 1. **Provider Push**:
-   - In this mode, the EDC connector fetches data from its backend systems and pushes it to the consumer's designated data sink. This method is particularly useful for batch processing scenarios where data can be transmitted in one go.
-   - **Benefits**:
-     - Ensures timely data delivery from the provider's backend.
-     - Reduces the complexity of data access for consumers, who receive the data directly without needing to manage retrieval protocols.
-     - Ideal for use cases where large volumes of data need to be shared at once, such as periodic reporting or large-scale data exports.
+    - In this mode, the EDC connector fetches data from its backend systems and pushes it to the consumer's designated data sink. This method is particularly useful for batch processing scenarios where data can be transmitted in one go.
+    - **Benefits**:
+      - Ensures timely data delivery from the provider's backend.
+      - Reduces the complexity of data access for consumers, who receive the data directly without needing to manage retrieval protocols.
+      - Ideal for use cases where large volumes of data need to be shared at once, such as periodic reporting or large-scale data exports.
 
 2. **Consumer Pull**:
-   - This mode allows the data consumer to actively request and pull data from the provider. Upon receiving a transfer request, the provider exposes the necessary credentials for accessing the data.
-   - **Benefits**:
-     - Empowers consumers with control over when and what data they receive, making it suitable for dynamic querying and on-demand data access.
-     - Enhances efficiency by allowing consumers to access only the datasets they require, reducing unnecessary data transmission.
-     - Facilitates scenarios where consumers need specific datasets at regular intervals, such as ongoing research projects.
+    - This mode allows the data consumer to actively request and pull data from the provider. Upon receiving a transfer request, the provider exposes the necessary credentials for accessing the data.
+    - **Benefits**:
+      - Empowers consumers with control over when and what data they receive, making it suitable for dynamic querying and on-demand data access.
+      - Enhances efficiency by allowing consumers to access only the datasets they require, reducing unnecessary data transmission.
+      - Facilitates scenarios where consumers need specific datasets at regular intervals, such as ongoing research projects.
 
 ### Use Cases of EDC Integration
 The integration of EDC within the PADME framework is exemplified through two primary use cases:
 
 1. **PADME as a Data Provider**:
-   - In this scenario, researchers utilize the PADME platform to share analysis results. After conducting their analyses, they can register the results within the PADME Provider Connector. The results, enriched with essential metadata, become available through the EDC data catalog.
-   - **Process**:
-     - Researchers complete their analysis using the PADME framework.
-     - Essential metadata about the analysis results is collected and registered within the PADME Provider Connector.
-     - Results are made discoverable through the data catalog, allowing other researchers and institutions to access valuable insights for their studies.
+    - In this scenario, researchers utilize the PADME platform to share analysis results. After conducting their analyses, they can register the results within the PADME Provider Connector. The results, enriched with essential metadata, become available through the EDC data catalog.
+    - **Process**:
+      - Researchers complete their analysis using the PADME framework.
+      - Essential metadata about the analysis results is collected and registered within the PADME Provider Connector.
+      - Results are made discoverable through the data catalog, allowing other researchers and institutions to access valuable insights for their studies.
 
 2. **PADME as a Data Consumer**:
-   - In this use case, the PADME platform consumes data from various providers within the data space using EDC connectors. Before execution, the analysis algorithm requires credentials to access the data.
-   - **Process**:
-     - The PADME Consumer Connector queries available data catalogs from different organizations within the data space.
-     - Individual contracts for data access are negotiated, and the necessary credentials are provided to the PADME platform.
-     - The platform can then execute its algorithms using the consumed data, leading to meaningful analytical outcomes.
+    - In this use case, the PADME platform consumes data from various providers within the data space using EDC connectors. Before execution, the analysis algorithm requires credentials to access the data.
+    - **Process**:
+      - The PADME Consumer Connector queries available data catalogs from different organizations within the data space.
+      - Individual contracts for data access are negotiated, and the necessary credentials are provided to the PADME platform.
+      - The platform can then execute its algorithms using the consumed data, leading to meaningful analytical outcomes.
 
 ### Technical Implementation
 The technical implementation of EDC integration with the PADME framework involves several components and processes:
@@ -171,5 +170,4 @@ For Harbor deployment, we have utilized Helm charts. Helm charts are packages fo
 
 #### StationSoftware Namespace
 ![stationsoftware.png](/assets/padme/k8s_stationsoftware.png)
-
 
