@@ -8,6 +8,5 @@
 
 # Demonstrators
 
-- [geoengine](./geoengine.md)
+- [Geo Engine](./geoengine.md)
 - [accurids](./accurids.md)
-
