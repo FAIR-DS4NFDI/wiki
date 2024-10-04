@@ -1,12 +1,10 @@
 # Summary
 
-- [Introduction](./introduction.md)
-- [Getting started](./introduction.md#getting-started)
-- [FAQ](./introduction.md#faq)
+[Introduction](./introduction.md)
 
 # Technical Overview
 
-- [technologies](./technologies.md)
+- [Technologies](./technologies.md)
 
 # Demonstrators
 
