@@ -1,12 +1,11 @@
 # Summary
 
-[Introduction](./introduction.md)
-
-# Technical Overview
-
-- [technologies](./technologies.md)
+- [Introduction](./introduction.md)
+- [Technologies](./technologies.md)
 
 # Demonstrators
 
-- [Geo Engine](./geoengine.md)
 - [accurids](./accurids.md)
+- [expandAI](./expandAI.md)
+- [Geo Engine](./geoengine.md)
+- [ruqad](./ruqad.md)
