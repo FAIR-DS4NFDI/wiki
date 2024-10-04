@@ -19,9 +19,12 @@ FAIR-DS uses a few core building blocks to enable data exchange.
 
 ### Demonstrators
 
-Demonstrators have been developed to show the possible interactions between different data infrastructures. These include: 
+Demonstrators have been developed to show the possible interactions between different data infrastructures. These include:
 
-- [Geoengine](./geoengine.md): 
+- [Geoengine](./geoengine.md):
+- [Quality assurance](./quality.md):
+- [Personal Health Train](./pht.md):
+
 - [accurids](./accurids.md):
 - [expandAI](./expandAI.md):
 - [ruqad](./ruqad.md):
