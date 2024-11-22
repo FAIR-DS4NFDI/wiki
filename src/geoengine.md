@@ -92,6 +92,8 @@ The demonstrator outlines incentives for the development of new applications in 
 
 ### Data Trustee
 
+![Data Trustee](./assets/ESG-data-trustee.png)
+
 The diagram illustrates a virtual data trustee model, where the trustee acts as an intermediary between data suppliers and data consumers, in this case research institutions and industry companies.
 The data supplier provides models and data, while the data consumer accesses and utilizes these resources.
 The trustee ensures the usability of the data and models for the consumer, logs usage for billing and reproducibility, and facilitates the exchange of data and models between the three data spaces.
@@ -99,12 +101,16 @@ This model promotes efficient and secure data sharing and utilization.
 
 ### UI (Dashboard)
 
+![Dashboard](./assets/ESG-dashboard.png)
+
 The UI provides a user-friendly interface for calculating an ESG (Environmental, Social, and Governance) indicator for specific properties.
 Users can select a property on a map, specify a date range using a time slider, and initiate the analysis process.
 The calculated ESG score is displayed visually, and detailed usage logs are available for transparency.
 This tool empowers users to assess the sustainability performance of properties over time.
 
 ### ML-based Indicator
+
+![ESG Indicator](./assets/ESG-indicator-v1.png)
 
 The biodiversity indicator shown in the image assesses the vegetation within a given area over time.
 It utilizes a vegetation index (NDVI) to track changes in vegetation cover, with different colors representing various land cover types.
