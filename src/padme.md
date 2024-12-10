@@ -6,6 +6,7 @@ This section provides a top-level view of PADME and its context.
 Further information can be found [here](https://docs.padme-analytics.de).
 
 ### Introduction
+
 In healthcare environments, such as hospitals or medical centers, a large amount of data is collected describing symptoms, diagnoses, and various aspects of the patient’s treatment process. This data is typically reused for reviewing and comparing the patient’s condition during subsequent visits. Sometimes, selected data is shared for continued patient care when the patient moves to another hospital.
 
 Healthcare data is also a fundamental source for medical research. The results of studies often depend on the amount of available patient data. Typically, the more data available for analysis, the more reliable the results. However, the reuse of patient data across different institutions is limited due to ethical, legal, and privacy regulations. Such restrictions are governed by laws like the [General Data Protection Regulation (GDPR)](https://gdpr-info.eu/) in Europe, the [Health Insurance Portability and Accountability Act (HIPAA)](https://www.hhs.gov/hipaa) in the U.S., or the [Data Protection Act (DPA)](https://www.gov.uk/data-protection) in the U.K.
@@ -15,7 +16,8 @@ These limitations have prompted the development of distributed analytics (DA) so
 Our DA infrastructure is based on the Personal Health Train (PHT) paradigm, with privacy-enhancing features that ensure transparency and preserve privacy.
 
 ## Background
-In recent years, several emerging technologies have enabled privacy-preserving data analysis. The two main paradigms of DA are **parallel** and **non-parallel** approaches. 
+
+In recent years, several emerging technologies have enabled privacy-preserving data analysis. The two main paradigms of DA are **parallel** and **non-parallel** approaches.
 
 - **Parallel DA** sends analysis replicas to data providers and uses protocols like Federated Learning (FL) to train data models.
 - **Non-parallel DA** transmits intermediate results between data providers, incrementally updating the results before returning them to the requester.
@@ -30,27 +32,32 @@ There are several methodologies based on these abstract principles:
 These concepts offer varying degrees of flexibility and complexity, and our PHT-based DA infrastructure focuses on ease of integration, compliance with privacy regulations, and extendibility.
 
 ## Architectural Overview
-The PHT originates from an analogy to a railway system, where Trains represent analysis tasks, Stations host confidential data, and a Central Service (CS) coordinates the tasks. 
+
+The PHT originates from an analogy to a railway system, where Trains represent analysis tasks, Stations host confidential data, and a Central Service (CS) coordinates the tasks.
 
 - **Trains** encapsulate analytic tasks, moving between stations to consume data. The tasks are executed in containers, making them self-sufficient and independent of the underlying environment.
 - **Stations** hold confidential data and execute analytic tasks securely, under the control of station administrators.
 - **Central Services (CS)** manage train orchestration, results storage, and security policies.
 
 ### Trains
+
 Trains represent individual analytic tasks, moving between stations to collect data. They are containerized in Docker images, ensuring independence from the environment. The results are processed incrementally and can include various types of data, such as aggregated cohort sizes or statistical model updates.
 
 Trains are executed in Docker-in-Docker (DinD) containers, and their lifecycle is managed via a clear state chart. Researchers can inspect the train’s progress and outcomes at different stages.
 
 ### Stations
+
 Stations are data nodes that hold sensitive data. They are autonomous, and administrators control which analytic tasks are accepted and executed. The station software executes containerized algorithms and ensures only privacy-compliant results are transmitted back to the requester.
 
 ### Central Services
+
 The CS handles train management, repository storage, and user access. It stores analytic algorithms and distributes them to stations. The CS also acts as a semi-trusted entity, handling intermediate results and ensuring security during train routing.
 
 ### Monitoring Components
+
 In addition to the core operational functionality of the infrastructure (e.g., train management), we address the growing challenge of transparency as the number of participating stations increases. Without visibility into the processes, stakeholders may lose trust in the system.
 
-To enhance transparency, we developed a novel metadata schema based on RDF(S), which enriches every digital asset with detailed semantics, such as metadata about station owners, datasets, and dynamic train execution information (e.g., current state, CPU usage). 
+To enhance transparency, we developed a novel metadata schema based on RDF(S), which enriches every digital asset with detailed semantics, such as metadata about station owners, datasets, and dynamic train execution information (e.g., current state, CPU usage).
 
 The **Metadata Processing Unit** at each station collects and transmits this information to a central metadata store in the Central Service (CS). This metadata is then visualized for the train requester via a **Grafana** frontend (WIP), offering insights into the train's progress.
 
@@ -61,14 +68,17 @@ To maintain the autonomy of stations, a customizable filter allows administrator
 The integration of Eclipse Data Components (EDC) within the PADME framework has been explored in this project. This integration aims to facilitate efficient and compliant data sharing and management. EDC provides a framework that supports secure and controlled data access.
 
 ### What is Eclipse Data Components (EDC)?
+
 EDC is an open-source framework designed to simplify data integration, management, and sharing in distributed environments. It employs connectors that enable seamless interaction with various data sources such as databases, APIs, and file systems. EDC aims to establish a standard for interoperability among data providers and consumers, ensuring that data can be accessed, shared, and analyzed while maintaining strict adherence to privacy regulations.
 
 ### Key Features of EDC Integration
+
 - **Flexible Data Access**: The integration supports two primary data transfer modes: **Provider Push** and **Consumer Pull**. This flexibility allows data providers to choose the most appropriate method for sharing their data based on their operational capabilities and the needs of the data consumers.
 
 - **Interoperability**: EDC connectors enable communication between different systems, enhancing collaboration among various research institutions and organizations. This interoperability allows for creating larger datasets for analysis and improving research outcomes.
 
 ### Data Transfer Modes
+
 EDC facilitates two distinct modes for data transfer, each catering to different use cases and operational requirements:
 
 1. **Provider Push**:
@@ -86,6 +96,7 @@ EDC facilitates two distinct modes for data transfer, each catering to different
       - Facilitates scenarios where consumers need specific datasets at regular intervals, such as ongoing research projects.
 
 ### Use Cases of EDC Integration
+
 The integration of EDC within the PADME framework is exemplified through two primary use cases:
 
 1. **PADME as a Data Provider**:
@@ -103,6 +114,7 @@ The integration of EDC within the PADME framework is exemplified through two pri
       - The platform can then execute its algorithms using the consumed data, leading to meaningful analytical outcomes.
 
 ### Technical Implementation
+
 The technical implementation of EDC integration with the PADME framework involves several components and processes:
 
 The PADME framework employs [**Core EDC Connector**](https://github.com/eclipse-edc/Connector) and [**Sovity’s Community Edition EDC Connector**](https://github.com/sovity/edc-ce), which extends the functionality of the core EDC connectors.
@@ -112,6 +124,7 @@ The PADME framework employs [**Core EDC Connector**](https://github.com/eclipse-
   - [PADME Station Software EDC Integration](https://git.rwth-aachen.de/padme-development/padme-station-software/-/tree/edc-integration)
 
 ### Aim of EDC Integration
+
 The integration of EDC within the PADME framework presents several **potential** benefits:
 
 - **Enhanced Collaboration**: By facilitating data sharing and integration, EDC may encourage collaboration among researchers and institutions, leading to richer datasets for analysis.
@@ -134,15 +147,18 @@ Our deployments are spread across four key namespaces, each serving a specific f
 ### Deployment Strategy
 
 #### Source Repository - GitLab
+
 We store our Kubernetes deployment files in GitLab.  
 **GitLab Repo**: [Continuous delivery for the PHT demonstrator project in FAIRDS](https://gitlab.com/sbeyvers/pht-cd)
 
 #### Continuous Delivery - Flux CD
-**Flux CD** continuously and automatically ensures that the state of the K8s cluster matches the configurations stored in GitLab. Any changes to the deployment files in GitLab trigger Flux CD to apply the updated configurations to the respective namespaces in Kubernetes. 
+
+**Flux CD** continuously and automatically ensures that the state of the K8s cluster matches the configurations stored in GitLab. Any changes to the deployment files in GitLab trigger Flux CD to apply the updated configurations to the respective namespaces in Kubernetes.
 
 Deployments and logs can be monitored for audit and troubleshooting purposes, allowing for proactive management of the cluster's health and performance.
 
 The architecture of each namespace is structured around several core Kubernetes resource types:
+
 - **Pods**: The fundamental deployable units in Kubernetes. They may consist of one or more containers. In the diagram, pods are typically represented by individual units.
 - **Services**: They act as an abstraction layer, providing a stable endpoint to communicate with the dynamic pods. Services might be visualized as connecting different pods or components.
 - **ConfigMaps & Secrets**: These are mechanisms to inject configuration data or sensitive information into pods. They might be represented by separate components linked to the relevant pods they serve.
@@ -151,23 +167,27 @@ The architecture of each namespace is structured around several core Kubernetes 
 
 ### Deployment Details
 
-The architecture of each namespace is structured around several core Kubernetes resource types. At the foundation, there are pods (pod) that represent the running instances of applications. These pods are managed by ReplicaSets (rs), ensuring the desired number of pod replicas are maintained. The creation and management of these ReplicaSets are handled by deployments (deploy). 
+The architecture of each namespace is structured around several core Kubernetes resource types. At the foundation, there are pods (pod) that represent the running instances of applications. These pods are managed by ReplicaSets (rs), ensuring the desired number of pod replicas are maintained. The creation and management of these ReplicaSets are handled by deployments (deploy).
 
 For storage needs, certain pods have associations with Persistent Volume Claims (pvc), signifying that they rely on persistent storage. In terms of network communication, some pods are exposed via services (svc), which act as a gateway for external or internal access. Furthermore, a few of these services are linked to ingress (ing), implying they are accessible from outside the cluster or have specific routing rules applied.
 
 #### CentralService Namespace
+
 ![centralservice.png](./assets/padme/k8s_centralservice.png)
 
 #### Harbor Namespace
+
 For Harbor deployment, we have utilized Helm charts. Helm charts are packages for Kubernetes applications, streamlining deployment and management. They offer consistency across deployments and support versioning, allowing for simplified and reproducible setups. The sources for these Helm charts are from the official Harbor repositories and documentation:
+
 - [GitHub - goharbor/harbor-helm: The helm chart to deploy Harbor](https://github.com/goharbor/harbor-helm)
 - [Deploying Harbor with High Availability via Helm](https://goharbor.io/docs/2.8.0/install-config/harbor-ha-helm/)
 
 ![harbor.png](./assets/padme/k8s_harbor.png)
 
 #### StationRegistry Namespace
+
 ![stationregistry.png](./assets/padme/k8s_stationregistry.png)
 
 #### StationSoftware Namespace
-![stationsoftware.png](./assets/padme/k8s_stationsoftware.png)
 
+![stationsoftware.png](./assets/padme/k8s_stationsoftware.png)
