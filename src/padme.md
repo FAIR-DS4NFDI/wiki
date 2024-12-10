@@ -192,6 +192,60 @@ For Harbor deployment, we have utilized Helm charts. Helm charts are packages fo
 
 ![stationsoftware.png](./assets/padme/k8s_stationsoftware.png)
 
+### Second Phase
+
+Following the initial deployment phase, we have maintained the deployment repository to stay aligned with the latest changes in each component. This phase involved fixing deployment configuration issues, stabilizing the deployment, and gradually introducing new components. Below is a summary of the key updates and changes:
+
+### Key Changes and Updates
+
+#### Component Updates and New Additions
+
+We updated several components to their latest released versions, improving stability and incorporating new features. Additionally, newly introduced components have been integrated. These updates are reflected in the revised Kubernetes architecture diagrams:
+
+##### **CentralService Namespace**
+
+- **CentralService, Storehouse, TrainCreator, and Metadatastore**: All were updated to their latest versions, incorporating bug fixes and new features.
+
+##### **StationSoftware Namespace**
+
+- **StationSoftware**: Updated to the latest version.
+- **Keycloak**: Introduced as a user management tool to handle access control for station software.
+
+##### **EDC Integration**
+
+- In the **CentralService Namespace**, new EDC components were deployed, including the provider connector and its supporting database.
+- In the **StationSoftware Namespace**, a consumer connector was added alongside the station software to handle negotiations with other available dataspace connectors.
+
+---
+
+#### Volume Mounting Issue
+
+A problem was identified where pods mounting the same volume couldn't start unless they were on the same node as the mounted volume. This limitation was due to the volume’s **ReadWriteOnce** access mode, which restricts mounting to a single node at a time.
+
+##### **Solution:**
+
+- **PodAffinity Rules**: Implemented to co-locate related pods on the same node, preventing volume-mounting issues and ensuring correct service deployment.  
+- **Future Considerations**: Alternative solutions may exist and should be explored for improved efficiency.
+
+---
+
+#### GitLab Runner
+
+The **CentralService GitLab runner configuration** was enhanced to better utilize the Kubernetes API for job scheduling. These changes allow for:
+
+- More efficient job handling.
+- Improved alignment with Kubernetes’ native scheduling mechanisms.
+- Better resource management during train deployment CI/CD operations.
+
+---
+
+#### Resource Scaling and Stability
+
+During this phase, several resource allocation challenges were encountered. Based on observations, the following adjustments were made:
+
+- Increased storage and memory allocations for key components like **DinD, GitLab, MinIO, Harbor**, and others.  
+- These adjustments have improved deployment stability and accommodated growing storage and resource requirements.
+
 ## Best Practices and Open Challenges
 
 Implementing distributed analysis in a Data Space environment under the FAIR principles has been challenging, with several open issues that need to be addressed.
