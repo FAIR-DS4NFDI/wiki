@@ -191,3 +191,63 @@ For Harbor deployment, we have utilized Helm charts. Helm charts are packages fo
 #### StationSoftware Namespace
 
 ![stationsoftware.png](./assets/padme/k8s_stationsoftware.png)
+
+## Best Practices and Open Challenges
+
+Implementing distributed analysis in a Data Space environment under the FAIR principles has been challenging, with several open issues that need to be addressed.
+
+Regarding implementing PADME/PHT as a service in FAIR Data Spaces, we evaluated the current contributions to identify technical issues and challenges that require future improvements.
+
+### PADME Deployment in the Denbi K8s Environment
+
+Several issues and opportunities for improvement emerged within the FAIRDS project and during the deployment of PADME components in the Denbi Kubernetes (K8s) environment. Despite several modifications, some challenges remain, particularly related to execution environments, container runtime compatibility, image-building, and workflows in incremental learning modes. The following sections provide an overview of the current implementation, identified challenges, discussed solutions, and potential future work to enhance PADME’s cloud-native capabilities.
+
+#### Current Implementation
+
+The PADME platform operates as a distributed analytics solution, where analytics tasks, referred to as **Trains**, are executed as Docker images. These trains run locally on the data provider's side as Docker containers, with aggregators in federated learning (FL) scenarios managed centrally by PADME's Central Service (CS). The execution process relies on the Docker API for several core operations:
+
+- Pulling Docker images  
+- Creating containers  
+- Executing containers and monitoring logs  
+- Capturing file system changes for inspection  
+- Building new images with changes  
+- Pushing back updated images to the CS  
+
+This Docker-centric model has been effective in medical data integration centers. However, considering cloud-native practices, limitations in this architecture have become noticeable, particularly regarding Kubernetes compatibility and the need for cloud-native functionality.
+
+#### Challenges Identified
+
+The current implementation faces several challenges that limit the platform's ability to fully leverage Kubernetes-native environments:
+
+- **Inflexibility with Container Runtime Selection**: The platform is limited to the Docker API for container operations, restricting compatibility with Kubernetes-native setups. Native Kubernetes container runtime interfaces would improve PADME's flexibility.  
+- **Complexity in Image Building for Incremental Learning**: The platform relies on local image builds to capture and package incremental changes as part of its learning methodology. However, Kubernetes does not natively support Docker image-building, requiring additional tools or workflows, which adds operational complexity.  
+- **Reliance on Docker-in-Docker (DinD)**: The trains are executed in Docker-in-Docker containers, adding an abstraction layer without substantial benefits in isolation or security.  
+- **Dependency on Dockershim for Container Execution**: With Kubernetes officially deprecating Dockershim, mounting Docker.sock to the host requires Docker installation on each Kubernetes node, which is not scalable or cloud-native.  
+
+#### Proposed Solutions and Future Work
+
+To address these challenges, several solutions were identified to align PADME implementation more closely with cloud-native practices, simplify workflows, and enhance security:
+
+- **Adoption of Kubernetes-Native APIs for Runtime Flexibility**: Updating PADME to support both Docker and Kubernetes container runtime APIs would enable seamless operation in Kubernetes environments and diverse infrastructures.  
+- **Incremental Learning Mode Redesign**: A new approach proposes transferring execution results to the Central Service (CS) after user approval rather than packaging them within the train image. Execution results would be stored in object storage and retrieved as needed. This method aligns better with containerization principles.  
+- **Evaluation of Security-Enhanced Execution Environments**: Alternatives like Kata Containers could provide better isolation and security compared to DinD, enhancing the platform's safety without compromising functionality.  
+- **Integration of Kaniko for Kubernetes-Native Image Building**: Kaniko, a Google open-source tool, allows image building directly in Kubernetes without Docker dependencies, aligning with cloud-native principles.  
+
+The deployment of PADME in the Denbi K8s environment revealed opportunities for improvement to align the platform with cloud-native practices. Integrating Kubernetes-native tools and refining the architecture represent potential future work for PADME’s evolution.
+
+### Challenges with EDC Integration in the PADME Ecosystem
+
+Integrating Eclipse Data Components (EDC) into the PADME ecosystem presented challenges during the FAIRDS project. Deliverable E4.3.8 provides a detailed account of the EDC integration process. Below, we summarize key challenges:
+
+The PADME infrastructure, structured around the Personal Health Train (PHT) paradigm, leverages Docker containerization technology for flexibility and simplified integration of new components. Sovity’s EDC Connector-as-a-Service provides a Docker image to facilitate integration. However, the community edition lacks functionality, such as on-demand data pull capabilities from data providers. This limitation required setting up a custom EDC Connector from scratch, demanding a steep learning curve and proficiency in Java programming.
+
+### Implementation of Real-world Distributed Data Analysis Use Cases in Data Spaces
+
+In the FAIRDS project, we proposed use cases utilizing publicly available data (see Section 4). However, real-world scenarios involving distributed analysis of public, protected, and private data in hospitals or other healthcare institutions require further exploration.
+
+Currently, we collaborate closely with two university hospitals in Germany:
+
+- University Hospital Leipzig  
+- University Hospital Cologne  
+
+These institutions have contributed to clinical trials using third-party data (e.g., patient data). However, accessing private data requires extensive documentation, consent, and lengthy approval processes. The PADME/PHT infrastructure running in Data Spaces can help researchers and professionals access relevant data efficiently to address specific research questions.
