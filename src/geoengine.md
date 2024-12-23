@@ -84,6 +84,23 @@ The model is trained in a Jupyter notebook that defines a Geo Engine workflow, f
 The workflow applies feature engineering on the data and re-arranges it via timeshift operations
 This gives the classifier the temporal development for each training pixel at once and allows learning the different land usage types.
 
+### Value Proposition
+
+The demonstrator shows the benefits of FAIR Data Spaces for science and industry.
+By linking data from different sources and applying ML methods, new insights can be gained and innovative applications developed.
+It showcases a system that connects data from science and industry across data spaces, applying it through machine learning while adhering to FAIR principles.
+
+#### Benefits:
+
+- For industry: The system enriches existing datasets with publicly available data and provides direct access to modern analysis frameworks using machine learning. This allows for direct data use, easy reuse of data and models, and avoids redundant calculations. A concrete example is combining observational and climate data with machine learning for biodiversity reporting, such as property classification.
+- For research: The system showcases the relevance of research data through transparent provenance and workflows. This facilitates funding applications and fosters collaboration between research institutions and companies, which is increasingly required by funding agencies.
+
+#### Contribution to FAIR Data Spaces
+
+The demonstrator contributes to the advancement of FAIR Data Spaces by scaling FAIR principles to broader data ecosystems and diverse sectors.
+It aims to create sustainable and efficient data infrastructures that support cross-sectoral data exchange and promote interoperability and the use of data standards through use cases that provide real benefits for science and industry.
+yy
+
 ## ESG Indicator and Virtual Data Trustees
 
 The ESG Indicator demonstrator provides companies with concrete data to assess their environmental impact, streamlining one step of the process of creating quantitative figures in ESG reports.
@@ -119,3 +136,18 @@ Grasslands, which exhibit seasonal changes, appear light green in the vegetation
 Forests, with stable vegetation cover, are represented by green in the vegetation index and purple in the ESG indicator.
 This indicator provides valuable insights into the biodiversity and ecological health of a region, contributing to quantitative ESG reporting.
 
+### Value Proposition
+
+This demonstrator establishes a virtual data trustee that connects data from industry (with DB as a pilot user), the space sector (Copernicus Data Space Ecosystem), and science (NFDI4Biodiversity-RDC). This data trustee acts as a secure intermediary, facilitating access to data from these different domains while upholding FAIR-DS principles.
+
+#### Benefits
+
+- Enhanced Collaboration: The demonstrator has the potential to foster collaboration between industry and research in the field of biodiversity analysis. By connecting industrial data spaces to research data infrastructure, companies like Deutsche Bahn can benefit from the data and analytical methods available, while research institutions can improve their models and gain new insights through access to industrial data.
+- Mutual Gains for Research and Industry: Access to a broader range of data leads to improved analyses and models. Both sides can define data access and control the use of their own data.
+  Practical Applications: The data trustee enables the creation of operational services, such as ESG reporting metrics, which can be used by industry. For research, it increases visibility and funding opportunities.
+
+Addressing data confidentiality, particularly for sensitive information like location data, is a key concern.
+The data trustee allows derived data and products to be shared without revealing the original data. Provenance tracking ensures transparency and proper attribution of data sources.
+
+By using a virtual data trustee, the demonstrator aims to enhance FAIR-DS principles, incentivize the use of data spaces, and address the needs of various stakeholders.
+It anticipates that the demonstrator can serve as a foundation for developing further applications in ESG reporting and biodiversity analysis, with the data trustee concept enabling the secure and trustworthy processing of sensitive data.
