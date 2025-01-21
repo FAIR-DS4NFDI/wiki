@@ -115,3 +115,10 @@ infrastructures (POLIS & BatCAT). However, the technologies, interfaces
 and design used allow the demonstrator to be easily extended to other
 use cases (e.g. another Kadi4mat-based research data infrastructure or
 another EDC-based data space) that go beyond battery research.
+
+## Resources
+
+[Repository of the Demonstrator](https://github.com/FAIR-DS4NFDI/ruqad-demonstrator)
+[Repository of the Testbed](https://github.com/FAIR-DS4NFDI/ruqad-testbed)
+[Architecture Documentation](https://docs.indiscale.com//fair-data-spaces/ruqad-docs/main/)
+[Video on Youtube](https://youtu.be/6uqJbvRPIi4?feature=shared)
